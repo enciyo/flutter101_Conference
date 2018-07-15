@@ -10,13 +10,26 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      width: 150.0,
-      height: 150.0,
-      color: Colors.red,
-      alignment: FractionalOffset.center,
-      child: new Text("Container Widget",style: new TextStyle(fontSize: 25.0),),
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Column & Row"),
+      ),
+      body: new Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          new Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              new Text("item"),
+              new Text("item"),
+              new Text("item"),
+              new Text("item"),
+              new Text("item"),
+            ],
+          ),
 
+        ],
+      ),
     );
   }
 }
