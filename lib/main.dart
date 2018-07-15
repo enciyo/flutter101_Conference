@@ -7,24 +7,16 @@ void main() {
       ),
     );
 }
-
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => new _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String name="Passive";
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new MaterialButton(onPressed: (){
-        // if we want change text name, we must use setState method
-        //This method will reload the Widget
-        setState(() {
-          this.name="Active";
-        });
-      },child: new Text(name),),
+    return new Container(
+      width: 150.0,
+      height: 150.0,
+      color: Colors.red,
+      alignment: FractionalOffset.center,
+      child: new Text("Container Widget",style: new TextStyle(fontSize: 25.0),),
+
     );
   }
 }
