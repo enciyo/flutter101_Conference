@@ -8,26 +8,40 @@ void main() {
     );
 }
 
-class MyApp extends StatelessWidget {
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => new _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  List<String> list=new List();
+  @override
+  void initState() {
+    setState(() {
+      list.add("Item-1");
+      list.add("Item-2");
+      list.add("Item-3");
+      list.add("Item-4");
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Listview & ListTile"),
-        centerTitle: true,
+        title: new Text("Listview with Array"),
       ),
-      body: new ListView(
-        children: <Widget>[
-          new ListTile(
-            title: new Text("Item",textAlign: TextAlign.center,),
-            leading: new Icon(Icons.account_circle),//left side icon
-            trailing: new IconButton(icon: new Icon(Icons.refresh), onPressed: (){}),//Righs side icon
-            subtitle: new Icon(Icons.linear_scale),//under side icon
-            onTap: (){print("onTap");},
-            onLongPress: (){print("onLongPress");},
-          )
-        ],
+      body: new ListView.builder(
+        itemCount: list.length,
+        itemBuilder: (BuildContext context,int deger){
+          return new ListTile(
+            title: new Text(list[deger]),
+          );
+        },
       ),
     );
   }
 }
+
