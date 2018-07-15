@@ -33,12 +33,14 @@ class _MyAppState extends State<MyApp> {
       appBar: new AppBar(
         title: new Text("Listview with Array"),
       ),
-      body: new ListView.builder(
+      body: new GridView.builder(
         itemCount: list.length,
+        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
         itemBuilder: (BuildContext context,int deger){
           return new ListTile(
             title: new Text(list[deger]),
           );
+          // more information ==> https://www.youtube.com/watch?v=-zJ6CnOVndE
         },
       ),
     );
